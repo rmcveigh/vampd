@@ -33,7 +33,7 @@
           "repository": {
             "host": "",
             "uri": "/vagrant/sites/colorado/code",
-            "revision": "master",
+            "revision": "region-page",
             "submodule": true,
             "remotes": {
               "upstream": "ryan@pluto.milesmedia.com:/home/ryan/colorado.com",
