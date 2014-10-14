@@ -58,7 +58,8 @@ Vagrant.configure("2") do |config|
       chef.environments_path = 'chef/environments'
       chef.environment = 'development'
       chef.add_role("base")
-      chef.add_role("example")
+      chef.add_role("colorado")
+      # chef.add_role("example")
       chef.add_role("nfs_export")
     end
   end

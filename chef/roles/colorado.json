@@ -1,0 +1,68 @@
+{
+  "name": "colorado",
+  "description": "The base role that gets added to every machine.",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": { },
+  "override_attributes": {
+    "drupal": {
+      "sites": {
+        "colorado": {
+          "active": true,
+          "deploy": {
+            "action": ["deploy", "import", "update"]
+          },
+          "drupal": {
+            "settings": {
+              "profile": "mmg_custom",
+              "docroot": "htdocs",
+              "settings": {
+                "default": {
+                  "ignore": true
+                },
+                "local_dev": {
+                  "location": "sites/all/settings.colorado.localdev.php"
+                }
+              },
+              "db_file": "/vagrant/sites/colorado/dbs/co-live-0911.sql"
+            }
+          },
+          "drupal_user": {
+            "admin_user": "administrator"
+          },
+          "repository": {
+            "host": "",
+            "uri": "/vagrant/sites/colorado/code",
+            "revision": "master",
+            "submodule": true,
+            "remotes": {
+              "upstream": "ryan@pluto.milesmedia.com:/home/ryan/colorado.com",
+              "bobby": "ryan@pluto.milesmedia.com:/home/bobby/colorado.com",
+              "tim": "ryan@pluto.milesmedia.com:/home/tim/colorado.com"
+            }
+          }
+        }
+      }
+    },
+    "nodejs": {
+      "install_method": "package",
+      "npm": "2.1.2"
+    },
+    "drupal_frontend": {
+      "nodejs": {
+        "packages":["bower", "grunt", "grunt-cli"]
+      },
+      "css_preprocessor": {
+        "/srv/www/colorado/current/htdocs/sites/all/themes/mmg_aurora": {
+          "gems": ["bundler"],
+          "active": true,
+          "commands": [
+            "bundle install && bundle update",
+            "npm install",
+            "grunt build"
+          ]
+        }
+      }
+    }
+  }
+}

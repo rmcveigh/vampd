@@ -1,0 +1,62 @@
+{
+  "name": "park_county",
+  "description": "The role for park_county",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {},
+  "override_attributes": {
+    "drupal": {
+      "sites": {
+        "park_county": {
+          "active": true,
+          "deploy": {
+            "action": ["deploy", "install"]
+          },
+          "drupal": {
+            "settings": {
+              "profile": "mmg_microsite",
+              "settings": {
+                "default": {
+                  "ignore": false
+                },
+                "local_dev": {
+                  "location": "profiles/mmg_microsite/settings.mmg_microsite.localdev.php"
+                }
+              }
+            }
+          },
+          "repository": {
+            "host": "",
+            "uri": "/vagrant/sites/park_county/code",
+            "revision": "master",
+            "remotes": {
+              "upstream": "ryan@pluto.milesmedia.com:/home/ryan/park_county"
+            }
+          }
+        }
+      }
+    },
+    "nodejs": {
+      "install_method": "package",
+      "npm": "2.1.2"
+    },
+    "drupal_frontend": {
+      "nodejs": {
+        "packages":["grunt", "grunt-cli", "bower"]
+      },
+      "css_preprocessor": {
+        "/srv/www/park_county/current/profiles/mmg_microsite/themes/custom/mmg_microsite_bare": {
+          "active": true,
+          "gems": [
+            "bundler"
+          ],
+          "commands": [
+            "bundle install && bundle update",
+            "npm install",
+            "grunt build"
+          ]
+        }
+      }
+    }
+  }
+}

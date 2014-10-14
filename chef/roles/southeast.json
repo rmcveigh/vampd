@@ -1,0 +1,62 @@
+{
+  "name": "southeast",
+  "description": "The role for southeast",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "default_attributes": {},
+  "override_attributes": {
+    "drupal": {
+      "sites": {
+        "southeast": {
+          "active": true,
+          "deploy": {
+            "action": ["deploy", "install"]
+          },
+          "drupal": {
+            "settings": {
+              "profile": "mmg_microsite",
+              "settings": {
+                "default": {
+                  "ignore": false
+                },
+                "local_dev": {
+                  "location": "profiles/mmg_microsite/settings.mmg_microsite.localdev.php"
+                }
+              }
+            }
+          },
+          "repository": {
+            "host": "",
+            "uri": "/vagrant/sites/southeast/code",
+            "revision": "master",
+            "remotes": {
+              "upstream": "ryan@pluto.milesmedia.com:/home/ryan/southeast"
+            }
+          }
+        }
+      }
+    },
+    "nodejs": {
+      "install_method": "package",
+      "npm": "2.1.2"
+    },
+    "drupal_frontend": {
+      "nodejs": {
+        "packages":["grunt", "grunt-cli", "bower"]
+      },
+      "css_preprocessor": {
+        "/srv/www/southeast/current/profiles/mmg_microsite/themes/custom/mmg_microsite_bare": {
+          "active": true,
+          "gems": [
+            "bundler"
+          ],
+          "commands": [
+            "bundle install && bundle update",
+            "npm install",
+            "grunt build"
+          ]
+        }
+      }
+    }
+  }
+}
