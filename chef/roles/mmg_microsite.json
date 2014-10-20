@@ -15,6 +15,7 @@
           "drupal": {
             "settings": {
               "profile": "mmg_microsite",
+              "docroot": "",
               "settings": {
                 "default": {
                   "ignore": false
@@ -38,7 +39,7 @@
     },
     "nodejs": {
       "install_method": "package",
-      "npm": "1.4.26"
+      "npm": "2.1.2"
     },
     "drupal_frontend": {
       "nodejs": {
@@ -46,7 +47,7 @@
       },
       "css_preprocessor": {
         "/srv/www/mmg_microsite/current/profiles/mmg_microsite/themes/custom/mmg_microsite_bare": {
-          "active": true,
+          "active": false,
           "gems": [
             "bundler"
           ],

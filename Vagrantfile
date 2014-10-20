@@ -59,7 +59,13 @@ Vagrant.configure("2") do |config|
       chef.environment = 'development'
       chef.add_role("base")
       chef.add_role("colorado")
+      # chef.add_role("anchorage")
       # chef.add_role("example")
+      # chef.add_role("park_county")
+      # chef.add_role("southeast")
+      # chef.add_role("southwest")
+      # chef.add_role("san_luis")
+      # chef.add_role("mmg_microsite")
       chef.add_role("nfs_export")
     end
   end

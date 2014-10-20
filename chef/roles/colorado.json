@@ -24,7 +24,7 @@
                   "location": "sites/all/settings.colorado.localdev.php"
                 }
               },
-              "db_file": "/vagrant/sites/colorado/dbs/co-live-0911.sql"
+              "db_file": "/vagrant/sites/colorado/dbs/colorado_new_20141009_220851.sql"
             }
           },
           "drupal_user": {
@@ -55,7 +55,7 @@
       "css_preprocessor": {
         "/srv/www/colorado/current/htdocs/sites/all/themes/mmg_aurora": {
           "gems": ["bundler"],
-          "active": true,
+          "active": false,
           "commands": [
             "bundle install && bundle update",
             "npm install",

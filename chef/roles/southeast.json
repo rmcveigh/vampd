@@ -15,6 +15,7 @@
           "drupal": {
             "settings": {
               "profile": "mmg_microsite",
+              "docroot": "",
               "settings": {
                 "default": {
                   "ignore": false
@@ -46,7 +47,7 @@
       },
       "css_preprocessor": {
         "/srv/www/southeast/current/profiles/mmg_microsite/themes/custom/mmg_microsite_bare": {
-          "active": true,
+          "active": false,
           "gems": [
             "bundler"
           ],
